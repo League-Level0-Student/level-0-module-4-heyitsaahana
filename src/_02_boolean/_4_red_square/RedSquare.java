@@ -15,7 +15,7 @@ public class RedSquare {
 	
 	public static void main(String[] args) {
 		
-		boolean isRed = false;
+		boolean isRed = true;
 		boolean isSquare = true;
 		
 		// The && shown here means that both booleans must be true for the 
@@ -28,6 +28,19 @@ public class RedSquare {
             JOptionPane.showMessageDialog(null, "No shape was drawn!");
         }
 		
+      if (isRed=true && !isRed) {
+        	drawBlueSquare();
+        }
+		else if(isRed=true && !isSquare)    {
+			drawRedTriangle();
+		}
+		else if(!isRed && !isSquare) {
+			drawBlueTriangle();
+		}
+      
+        
+        
+		
 		// 1. Run the program and notice no shape is drawn.
 		
 		// 2. Initialize isRed to true instead of false and run the program 
@@ -36,6 +49,8 @@ public class RedSquare {
 		// 3. Write an else if statement after the if statement that calls 
 		//    drawBlueSquare if isRed is false AND isSquare is true. 
 		//    Hint: Use ! and &&.
+		   
+		
 		
 		// 4. Write an else if statement that calls drawRedTriangle() if isRed
 		//    is true and isSquare is false.
@@ -54,7 +69,12 @@ public class RedSquare {
 		// 7. Write an if statement using the static booleans at the top of 
 		//    the program. If drewRedSquare OR drewBlueSquare are true, then
 		//    tell the user they drew a square in a pop-up. Hint: ||
-		
+			if(drewRedSquare==true ||  drewBlueSquare==true        ) {
+				JOptionPane.showMessageDialog(null,"You drew a square");
+			}
+			else if(drewRedTriangle || drewBlueTriangle      ) {
+				JOptionPane.showMessageDialog(null,"You drew a triangle");
+			}
 		//    Notice these static booleans start off false, but update to true 
 		//    whenever you call their matching method.
 		

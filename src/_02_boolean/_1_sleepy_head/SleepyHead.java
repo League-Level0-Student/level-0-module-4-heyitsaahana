@@ -12,7 +12,7 @@ public class SleepyHead {
 		// i.e. >, <, ==, >=, <=, .equals() which all produce a true or false
 		// value.
 		
-		boolean isWeekend = false;
+		boolean isSchool = false;
 		
         // 1.) Run the program and look at the if-else statement below.
 		
@@ -23,7 +23,8 @@ public class SleepyHead {
 		// there is no need for comparisons because it is already a true 
 		// or false value.
 		
-		if(isWeekend) {
+	
+		if(isSchool) {
 			JOptionPane.showMessageDialog(null, "You can sleep in! There's no school today.");
 		}
 		else {
