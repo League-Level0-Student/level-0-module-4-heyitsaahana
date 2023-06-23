@@ -14,10 +14,11 @@ import processing.core.PImage;
  *    PImage face;
  * 
  * 3. In your setup() method, import your image using the following code:
- *    face = loadImage("face.jpg");
- * 
+ *   
+ *face = loadImage("face.jpg");
+ * 	face=loadImage("sponge.png" );
  * 4. Resize your face image to the size of the window using the resize() method.
- * 
+ * resize(500,500)
  * 5. In the draw() method, place a white ellipse over the left eye of your image.
       HINT: To find out where to put it, add code to print the mouseX and
       mouseY where you click the mouse.
@@ -37,27 +38,52 @@ import processing.core.PImage;
  *    to the boundary. Put this code before you draw the pupils.
  */
 public class GooglyEyes extends PApplet {
-    static final int WIDTH = 800;
-    static final int HEIGHT = 600;
-    
-    PImage face;
-    
-    @Override
-    public void settings() {
-        size(WIDTH, HEIGHT);
-    }
-    
-    @Override
-    public void setup() {
+	static final int WIDTH = 800;
+	static final int HEIGHT = 600;
 
-    }
+	PImage face;
+	int pupilX=315;
+	int pupilY=136;
+	@Override
+	public void settings() {
+		size(WIDTH, HEIGHT);
+	}
 
-    @Override
-    public void draw() {
+	@Override
+	public void setup() {
+		face=loadImage("sponge.png");
+		face.resize(WIDTH,HEIGHT);
+	}
 
-    }
+	@Override
+	public void draw() {
+		background(face);
+		if(mousePressed) {
+			System.out.println(mouseX+" " +mouseY);
+		}
+		noStroke();
+		fill(255,255,255);
+		ellipse(450,131,120,90);
+		ellipse(315,136,125,85);
+		if(mouseX<386 && mouseX>257 && mouseY>85 && mouseY<182) {
+			pupilX=mouseX;
+			pupilY=mouseY;
 
-    static public void main(String[] args) {
-        PApplet.main(GooglyEyes.class.getName());
-    }
+
+
+			fill( 0,0,0       );
+			ellipse(mouseX,mouseY,50,55); // 326,126
+
+			ellipse(mouseX+451-326,mouseY,50,55);
+		}else {
+			fill( 0,0,0       );
+			ellipse(pupilX,pupilY,50,55); // 326,126
+
+			ellipse(pupilX+451-326,pupilY,50,55);
+		}
+	}
+
+	static public void main(String[] args) {
+		PApplet.main(GooglyEyes.class.getName());
+	}
 }
